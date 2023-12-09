@@ -68,7 +68,7 @@ class Network:
         #print('local cost', local_cost)
       costs.append(np.mean(local_cost))
 
-    print(min(costs))
+    print("minimum cost", min(costs), "average cost", np.average(costs))
     return genetic_algorithm(population, costs)
       
 # base class for all layer types

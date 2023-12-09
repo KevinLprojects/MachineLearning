@@ -17,17 +17,15 @@ y_train = np.array(y_train)
 x_train_flat = x_train.reshape(60000, 784)
 
 model = Network()
-model.add(Dense(784, 16, ReLU))
-model.add(Dense(16, 16, ReLU))
-model.add(Dense(16, 10, ReLU))
+model.add(Dense(784, 32, ReLU))
+model.add(Dense(32, 10, ReLU))
 
 batch_size = 60
 
 x_batch = x_train_flat.reshape(int(60000 / batch_size), batch_size, 784)
 y_batch = y_train.reshape(int(60000 / batch_size), batch_size, 10)
 
-population = model.create_population(100) # population size must be even
+population = model.create_population(200) # population size must be even
 
 for data, labels in zip(x_batch, y_batch):
   population = model.train_reinforcement(data, labels, population)
-

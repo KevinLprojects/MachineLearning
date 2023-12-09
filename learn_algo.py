@@ -7,7 +7,7 @@ def cost(output, labels): # difference between output values an expected values.
   result = 0
   for x, y in zip(output, labels):
     result += (x - y) ** 2
-  return(result)
+  return(result / len(output))
   
 def fitness(cost): # fitness increases as the network inproves unlike cost
   return (1 / cost)
